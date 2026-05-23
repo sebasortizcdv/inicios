@@ -375,6 +375,545 @@
 
 # print(f'Total de productos revisados {total_general}')
 
+#27 TAREA
+
+# lista = [1,3,4,5,6,7,9,1]
+# resultado = 0
+# for numero in lista:
+#     resultado = resultado + numero
+
+# print(resultado)
+
+#28 TAREA
+
+# resultado = 0 
+# lista = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16] 
+# for numero in lista:
+#     if numero%2 == 0:
+#          resultado = resultado + numero
+#     else:
+#         resultado = resultado - numero
+# print(resultado)
+
+#29 TAREA
+
+# gatillo = ""
+# while gatillo != "soltar":
+#     gatillo = input("Por favor, escribe [fuego] para disparar y [soltar] para detener el arma: ").lower()
+
+#     if gatillo == "fuego":
+#         for rafaga in range(1,4):
+#             print(F'RATATATA [Bala nro {rafaga}]')
+#     elif gatillo == "soltar":
+#         print("Hasta la proxima!")
+
+#30 TAREA
+
+# for soldado in range(1,4):
+#     flexiones = 0
+#     print(f'Soldado numero {soldado}')
+#     while flexiones < 5:
+#         repeticion = input("Por cada flexion que haga este soldado presiona [ENTER]: ")
+#         flexiones += 1
+#         print(flexiones)
+#     print("Alto! soldado aprobado!")
+
+#31 TAREA 
+# for camion in range(1,3):
+#     print(f'Camion numero {camion}')
+#     peso_total = 0
+    
+#     while peso_total < 20:
+#         caja = int(input("Por favor, ingresa el peso de la caja que cargaras: "))
+#         if peso_total + caja > 20:
+#             print("Acabas de exceder el peso maximo, por favor, nivela tu carga")
+#         else:
+#             peso_total = peso_total + caja
+#             print(f'Genial! llevas {peso_total} toneladas')
+#     print(f'Camion numero {camion} cargado, siguiente.')
+# print("camiones cargados! puedes comenzar tu viaje")
+
+#32 TAREA
+# carrito = ["pan", "queso", "huevos"]
+# for productos in carrito:
+#     print(f'llevas {productos} en tu carrito sebastian')
+
+#33 TAREA
+# invitados = []
+# while len(invitados) < 2:
+#     nuevo_invitado = input("Por favor, ingrese los nombres de los invitados a tu fiesta: ")
+#     invitados.append(nuevo_invitado)
+# print("Genial, acabamos de completar el numero de los invitados")
+# print(invitados)
+
+#34 TAREA
+# numeros_impares = []
+# numeros_pares = []
+# numeros = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30]
+# for numero in numeros:
+#     if numero%2 == 0:
+#         numeros_pares.append(numero)
+#     else:
+#         numeros_impares.append(numero)
+# print(numeros_pares)
+# print(numeros_impares)
+
+# 35 TAREA
+
+# invitados = []
+# negra = ["gabriela", "valeria", "aniuska", "laura"]
+
+# while len(invitados) < 3:
+#     nombre = input("Sebastian, por favor ingrese solamente 3 que estan invitados a la fiesta: ").lower()
+#     invitados.append(nombre) 
+
+# for amigo in invitados:
+#     if amigo in negra:
+#         print("Mujer del diavlo, no puedes pasar")
+#     else:
+#         print("Felicidades primo hermano, puedes pasar a la despedida de soltero de sebastian")
+
+# 36 TAREA
+
+# nombres = []
+# hombres = []
+# mujeres = []
+
+# for _ in range(5):
+#     nombre = input("Por favor, ingrese los nombres que desea en la lista: ")
+#     nombres.append(nombre)
+
+# for nombre in nombres:
+#     if nombre[-1] == "a":
+#         mujeres.append(nombre)
+#     else:
+#         hombres.append(nombre)
+
+# print(mujeres)
+# print(hombres)
+
+#37 TAREA
+
+# numeros_ingresados = []
+# grandes = []
+# pequenos = []
+
+# for _ in range(6):
+#     numero = input("Por favor, ingrese 6 numeros aleatorios: ")
+#     numeros_ingresados.append(numero)
+
+# for numero in numeros_ingresados:
+#     if int(numero) >= 100:
+#         grandes.append(numero)
+#     else:
+#         pequenos.append(numero) 
+# print(grandes)
+# print(pequenos)   
+
+# 38 TAREA
+
+# palabra_completa = []
+# empieza_vocal = []
+# lista = []
+# for _ in range(6):
+#     nombre = input("Por favor, ingresa cualquier nombre o letra, lo que quieras : ").lower()
+#     lista.append(nombre)
+
+# for letra in lista:
+#     if len(letra) > 0:
+#         if letra[0] in "aeiou":
+#             empieza_vocal.append(letra)
+#         else:
+#          palabra_completa.append(letra)
+
+# print(palabra_completa)
+# print(empieza_vocal)
+
+# 39 TAREA
+# El Cajero Selectivo (Listas y Filtros Numéricos)
+# En este ejercicio, tú serás el que clasifica el dinero en un banco. Tu trabajo es separar las "transacciones grandes" de las "pequeñas".
+
+# numeros_ingresados = []
+# grandes = []
+# pequenos = []
+
+# for _ in range(6):
+#     numero = int(input("Por favor, escriba el numero que quiere ingresar: "))
+#     numeros_ingresados.append(numero)
+
+# for numero in numeros_ingresados:
+#     if numero >= 100: 
+#         grandes.append(numero)
+#     else:
+#         pequenos.append(numero)
+# print(grandes)
+# print(pequenos)
+
+#40 TAREA
+
+# productos = ["fresa","cambur","melon","uva","coco"]
+# for fruta in productos:
+#     precio = 0
+#     while precio <= 0:
+#         precio = int(input(f'Ingrese el precio de {fruta}: '))
+#     print("Precio registrado")
+
+# print(productos)
+
+#41 TAREA
+
+# atletas = []
+
+# for _ in range(1,4):
+#     kilometros = 0
+#     nombre = input("Por favor, ingrese el nombre de sus atletas: ")
+#     atletas.append(nombre)
+
+#     for _ in range(1,3):
+#         sesiones = 0
+#         distancia = int(input("Ingrese la distancia recorrida: "))
+#         kilometros += distancia
+        
+#     print(f'La distancia recorrida de {nombre}, es: {kilometros}Km')
+
+#42 TAREA 
+
+# lista_lacteos = []
+# lista_limpieza = []
+# categorias = ["lacteos","limpieza"]
+# for categoria in categorias:
+#     proceso = input(f'iniciando carga de: {categoria} [oprima ENTER para continuar...]')
+
+#     for _ in range(1,3):
+#         producto = input("Por favor, ingrese el nombre del producto: ")
+        
+#         if categoria == "lacteos":
+#             lista_lacteos.append(producto)
+#         else:
+#             lista_limpieza.append(producto)
+# print(lista_lacteos)
+# print(lista_limpieza)
+
+#43 TAREA
+
+# total_herramientas = []
+
+# for caja in range(1,3):
+#     print(f'Caja {caja}')
+
+#     for _ in range(4):
+#         herramienta = input("Por favor, ingrese las herramientas que guardara: ").lower()
+#         if herramienta == "pesado":
+#             break
+#         total_herramientas.append(herramienta)
+# print(total_herramientas)
+
+# 44 TAREA
+
+# usuarios = ["sebastian", "admin"]
+# clave = 1234
+
+# for usuario in usuarios:
+#     print(usuario)
+#     peticion = int(input("Por favor, ingrese su clave: "))
+
+#     while peticion != clave:
+#         print("Contrasena incorrecta")
+#         peticion = int(input("Vuelva a ingresar su clave: "))
+    
+#     print(f'Clave correcta para {usuario}')
+
+# 45 TAREA
+
+# for usuario in range(1,3):
+#     print(f'Usuario {usuario}')
+#     saldo_disponible = 100
+#     retiro = int(input("Por favor, seleccione la cantidad a retirar: "))
+    
+#     while retiro > 50:
+#         retiro = int(input("Monto excedido, por favor ingrese un monto valido: "))
+
+#     saldo_disponible -= retiro 
+#     print(f'Acaba de retirar {retiro} de su cuenta')   
+#     print(f'su saldo disponible es de: {saldo_disponible}')  
+
+#46 TAREA 
+
+# cajas_existentes = 20
+
+# while cajas_existentes != 0:
+#     solicitud = int(input("Por favor, ingrese la cantidad de cajas a retirar: "))
+
+#     if solicitud <= cajas_existentes:
+#         cajas_existentes -= solicitud
+#         print(f'Quedan {cajas_existentes} cajas en el almacen.')
+
+#     else:
+#         print("Por favor, ingrese una cantidad valida")
+
+# print("Bodega vacia.")
+
+#47 TAREA
+
+# cajas = 10
+
+# while cajas >= 0:
+#     solicitud = int(input("Por favor, ingrese el numero de cajas para sacar: "))
+
+#     if solicitud == -1:
+#         print("Solicitud cancelada por el usuario")
+#         break
+#     elif solicitud > cajas:
+#         print("Sin existencia de cajas suficientes")
+#     else:
+#         cajas -= solicitud
+#         print(f'Quedan {cajas} cajas disponibles')
+
+# EJEMPLO
+
+# lista_compras = [["hades", 25], ["silksong", 15], ["baldurs", 34]]
+# catalogo_steam = dict(lista_compras)
+# print(catalogo_steam["hades"])
+
+# 48 TAREA 
+
+# lista_inicial = ["salto de cuerda", "sentadilla", "flexiones"]
+
+# ejercicio_extra = "burpees"
+# eliminar = ""
+
+# print(lista_inicial)
+
+# ejercicio = input("Presiona [ENTER] para agregar (Burpees) a tu rutina: ")
+# lista_inicial.append(ejercicio_extra)
+
+# print(lista_inicial)
+
+# while eliminar != "salto de cuerda" and eliminar != "sentadilla" and eliminar != "flexiones":
+#     eliminar = input("deseas eliminar algun ejercicio de esta lista?: ").lower()  
+
+#     if eliminar == "salto de cuerda":
+#         lista_inicial.remove("salto de cuerda")
+#     elif eliminar == "sentadilla":
+#         lista_inicial.remove("sentadilla")
+#     elif eliminar == "flexiones":
+#         lista_inicial.remove("flexiones")
+#     elif eliminar == "burpees":
+#         lista_inicial.remove("burpees")
+
+# print(lista_inicial)
+# print("Comenzamos con la rutina!")
+
+# 49 TAREA
+
+# piernas = ["sentadilla", "estocada", "salto"]
+# explosividad = ["pique", "salto", "burpees"]
+
+# print(set(piernas + explosividad))
+
+#50 TAREA
+
+# limpios = []
+# lista = ["  SENIAT", "seniat", "Alcaldía", "ALCALDÍA  ", "Corpoelec", "corpoelec"]
+
+# for nombre in lista:   
+#     limpios.append(nombre.strip().lower())
+#     print(limpios)
+
+# print(set(limpios))
+
+# 51 TAREA LO HIZO GEMINI
+
+# nombres = ["sebastian", "fabian", "carlos", "valeria", "jose", "luis"]
+# nombre = ""
+
+# while nombre not in nombres:
+        
+#     if nombre != "":
+#         print("nombre no esta en la lista")
+#     nombre = input("Ingrese su nombre: ").strip().lower()
+    
+
+# print("Identidad confirmada.")
+
+#52 TAREA
+
+# encontrado = False
+# lista = [
+# {"modelo": "skyline R34", "estado": "caja"}, {"modelo": "datsun 510", "estado": "caja"}, {"modelo": "silvia", "estado": "sin caja"}
+# ]
+
+# while encontrado != True:
+#     deseado = input("Por favor ingrese el nombre del modelo deseado: ").strip().lower()
+#     for carro in lista:
+#         if carro["modelo"] == deseado:
+#             encontrado = True
+#             print(f'El carro {carro["modelo"]} esta {carro["estado"]}')
+#             break
+
+#53 TAREA
+
+# capacidad = ""
+# equipos = [{"nombre": "pc gamer", "watts": 400}, {"nombre": "mini pc", "watts": 65}, {"nombre": "monitor", "watts": 35}]
+
+
+# while capacidad != "salir":
+#     capacidad = input("Por favor, ingrese la capacidad total de WATTS que busca: ")
+#     if capacidad == "salir":
+#         break
+#     for equipo in equipos:
+#         if equipo["watts"] <= int(capacidad):
+#             print(f'{equipo["nombre"]}')
+
+# 54 TAREA
+
+# sensores = [{"componentes":"cpu", "grados": 95}, {"componentes":"gpu", "grados": 97}, {"componentes":"ram", "grados": 76}]
+# limite = ""
+
+# while limite != "cerrar":
+#     limite = input("Por favor, ingrese la termperatura limite: ")
+#     if limite == "cerrar":
+#         break
+
+#     for sensor in sensores:
+#         if sensor["grados"] > int(limite):
+#             print(f'{sensor["componentes"]} esta caliente {sensor["grados"]}')
+#         else:
+#             print(f'{sensor["componentes"]} esta estable')
+
+#55 TAREA
+# Imagina que no solo quieres saber la temperatura, sino también qué marca es el componente, para saber a quién reclamar la garantía si se quema.
+
+# Tu Misión:
+
+# Tus datos: Crea una lista llamada pc_setup con 3 diccionarios. Cada uno debe tener tres llaves: {"parte": "...", "marca": "...", "temp": ...} (ej: "cpu", "amd", 95).
+
+# El Objetivo: El usuario ingresa un límite de temperatura.
+
+# La Lógica:
+
+# El while se repite hasta escribir "off".
+
+# El for debe buscar los componentes que superen ese límite.
+
+# Si lo supera, debe imprimir un mensaje más completo: "Alerta: El [parte] marca [marca] llegó a [temp]°C".
+
+# Si está bien, simplemente imprime: "[parte] funcionando correctamente".
+        
+# pc_setup = [{"parte": "cpu", "marca": "amd", "temp": 96}, {"parte": "gpu", "marca": "nvidia", "temp": 99}, {"parte": "ram", "marca": "samsung", "temp": 70}]
+# limite = ""
+
+# while limite != "off":
+#     limite = input("Por favor, ingrese la temperatura limite buscada: ")
+#     if limite == "off":
+#         break
+
+#     for componente in pc_setup:
+#         if componente["temp"] > int(limite):
+#             print(f'[ALERTA]: EL componente: {componente["parte"]}, marca: {componente["marca"]} llego a: {componente["temp"]}')
+#         else:
+#             print(f'{componente["parte"]} funcionando correctamente')
+
+# 14 * 4
+
+# age = 14 * 4
+# print(age)
+
+# def promedio(num_1, num_2, num_3):
+#     return int((num_1 + num_2 + num_3)/3)
+# resultado = promedio(5, 9, 3)
+# print(resultado)
+
+# def sum_numeros(numeros):
+#     total = 0
+#     for numero in numeros:
+#         total += numero
+#     resultado = total
+#     return total
+
+# resultado = sum_numeros([1, 2, 3])
+# print(resultado)
+
+
+# def suma(*numeros):
+#     resultado = sum(numeros)
+#     print(resultado)
+
+# suma(1,2,3,4,5,6)
+
+# # Example of using .items()
+# my_dict = {"name": "Alice", "age": 25}
+
+# for key, value in my_dict.items():
+#     print(f"{key}: {value}")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+        
+
+
+
+
+
+    
+    
+
+
+
+
+
+
+
+
+        
+    
+
+
+
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+    
+       
+
+
     
 
     
