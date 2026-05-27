@@ -773,6 +773,8 @@ atendidos, no_atendidos, boxes = gestionar_pit_stop(boxes, autos_en_espera)
 print("atendidos", atendidos)
 print("No atendidos", no_atendidos)
 print(boxes)
+#-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 
 
