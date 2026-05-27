@@ -763,7 +763,7 @@ def gestionar_pit_stop(boxes, autos_en_espera):
             atendidos.append(auto["escuderia"])
         
         else:
-            if auto["mecanicos_necesarios"] > boxes["mecanicos_disponibles"]:2
+            if auto["mecanicos_necesarios"] > boxes["mecanicos_disponibles"]:
                 no_atendidos.append({"Escuderia": auto["escuderia"], "Motivo": "Mecanicos, no disponibles"})
             else:
                 no_atendidos.append({"Escuderia": auto["escuderia"], "Motivo": "Neumaticos, no disponibles"})
