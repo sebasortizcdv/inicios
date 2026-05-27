@@ -665,42 +665,114 @@
 # print("No se pudieron descargar: ", canciones_rechazadas)
 # print("Espacio disponible: ", espacio_telefono)
 #-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-fila_empleados = [
-    {"nombre": "Ana", "pase": 1, "destino": "Cafetería"},                                                                  
-    {"nombre": "Carlos", "pase": 1, "destino": "Servidores"},                                                  
-    {"nombre": "Elena", "pase": 5, "destino": "Presidencia"},                                                             
-    {"nombre": "Luis", "pase": 2, "destino": "Cafetería"}                                                                  
-]
-zonas_empresa = [
-    {"area": "Cafetería", "nivel_requerido": 1, "presentes": 10, "capacidad_max": 12},
-    {"area": "Servidores", "nivel_requerido": 3, "presentes": 1, "capacidad_max": 2},
-    {"area": "Presidencia", "nivel_requerido": 5, "presentes": 0, "capacidad_max": 1}
-]
+# fila_empleados = [
+#     {"nombre": "Ana", "pase": 1, "destino": "Cafetería"},                                                                  
+#     {"nombre": "Carlos", "pase": 1, "destino": "Servidores"},                                                  
+#     {"nombre": "Elena", "pase": 5, "destino": "Presidencia"},                                                             
+#     {"nombre": "Luis", "pase": 2, "destino": "Cafetería"}                                                                  
+# ]
+# zonas_empresa = [
+#     {"area": "Cafetería", "nivel_requerido": 1, "presentes": 10, "capacidad_max": 12},
+#     {"area": "Servidores", "nivel_requerido": 3, "presentes": 1, "capacidad_max": 2},
+#     {"area": "Presidencia", "nivel_requerido": 5, "presentes": 0, "capacidad_max": 1}
+# ]
 
-def control_acceso(fila_empleados, zonas_empresa):
-    exitosos = []
-    rechazados = []
+# def control_acceso(fila_empleados, zonas_empresa):
+#     exitosos = []
+#     rechazados = []
     
-    for empleado in fila_empleados:
-        #carlos
-        for zona in zonas_empresa:
-            #carlos in cafeteria
-            if empleado["destino"] == zona["area"]:
+#     for empleado in fila_empleados:
 
-                if zona["presentes"] < zona["capacidad_max"] and empleado["pase"] >= zona["nivel_requerido"]:
-                    exitosos.append(empleado["nombre"])
-                    zona["presentes"] += 1 
-                else:
-                    rechazados.append({"Nombre": empleado["nombre"], "Motivo": "Capacidad maxima alcanzada"})
-    print(rechazados)
+#         for zona in zonas_empresa:
+#             if empleado["destino"] == zona["area"]:
+
+#                 if empleado["pase"] >= zona["nivel_requerido"] and zona["presentes"] < zona["capacidad_max"]:
+#                     exitosos.append(empleado["nombre"])
+#                     zona["presentes"]+= 1
+#                 else:
+                    
+#                     if empleado["pase"] < zona["nivel_requerido"]:
+#                         rechazados.append({"Nombre":empleado["nombre"], "Motivo":  "Rango no permitido"})                    
+#                     else:
+#                         rechazados.append({"Nombre": empleado["nombre"], "motivo": "espacio insuficiente"})            
+#                 break
+
+                    
+#     return exitosos, rechazados
+# empleados_aceptados, empleados_rechazados = control_acceso(fila_empleados, zonas_empresa)
+# print("Empleados aceptados", empleados_aceptados)
+# print("Empleados rechazados", empleados_rechazados)
+#-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# inventario_hospital = [
+#     {"zona": "Camas", "gravedad_minima": 1, "disponibles": 1},
+#     {"zona": "Trauma", "gravedad_minima": 5, "disponibles": 2},
+#     {"zona": "Quirofano", "gravedad_minima": 8, "disponibles": 0}
+# ]
+# fila_pacientes = [
+#     {"nombre": "Andrés", "gravedad": 3, "necesita": "Camas"},
+#     {"nombre": "María", "gravedad": 9, "necesita": "Quirofano"},
+#     {"nombre": "Pedro", "gravedad": 2, "necesita": "Trauma"},
+#     {"nombre": "Laura", "gravedad": 2, "necesita": "Camas"}
+# ]
+# def asignar_urgencias(fila_pacientes, inventario_hospital):
+#     ingresados = []
+#     rechazados = []
+    
+#     for paciente in fila_pacientes:
+#         for zona in inventario_hospital:
+
+#             if paciente["necesita"] == zona["zona"]:
+
+#                 if paciente["gravedad"] >= zona["gravedad_minima"] and zona["disponibles"] > 0:
+#                     ingresados.append(paciente["nombre"])
+#                     zona["disponibles"] -= 1
+#                 else:
+#                     if paciente["gravedad"] < zona["gravedad_minima"]:
+#                         rechazados.append({"Nombre" : paciente["nombre"], "Motivo": "Gravedad minima necesaria no registrada."})
+#                     else:
+#                         rechazados.append({"Nombre" : paciente["nombre"], "Motivo" : "Disponibilidad del area completada"})
+            
+#                 break
+
+#     return ingresados, rechazados
+# atendidos, no_atentidos = asignar_urgencias(fila_pacientes, inventario_hospital)
+# print("Pacienten ingresados", atendidos)
+# print("Pacientes sin atender", no_atentidos)
+#-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+boxes = {
+    "neumaticos": {"Blandos": 4, "Duros": 8, "Lluvia": 4},
+    "mecanicos_disponibles": 6
+}
+
+autos_en_espera = [
+    {"escuderia": "Ferrari", "pide": "Blandos", "mecanicos_necesarios": 4},
+    {"escuderia": "Red Bull", "pide": "Blandos", "mecanicos_necesarios": 4},
+    {"escuderia": "Mercedes", "pide": "Duros", "mecanicos_necesarios": 5},
+    {"escuderia": "McLaren", "pide": "Lluvia", "mecanicos_necesarios": 8}
+]
+
+def gestionar_pit_stop(boxes, autos_en_espera):
+    atendidos = []
+    no_atendidos = []
+
+    while len(autos_en_espera) > 0:
+        auto = autos_en_espera.pop(0)
         
-                
-    return exitosos, rechazados
-empleados_aceptados, empleados_rechazados = control_acceso(fila_empleados, zonas_empresa)
-print("Empleados aceptados", empleados_aceptados)
-print("Empleados rechazados", empleados_rechazados)
-
-
+        if boxes["neumaticos"][auto["pide"]] >= 4 and auto["mecanicos_necesarios"] <= boxes["mecanicos_disponibles"]:
+            boxes["neumaticos"][auto["pide"]] -= 4
+            atendidos.append(auto["escuderia"])
+        
+        else:
+            if auto["mecanicos_necesarios"] > boxes["mecanicos_disponibles"]:2
+                no_atendidos.append({"Escuderia": auto["escuderia"], "Motivo": "Mecanicos, no disponibles"})
+            else:
+                no_atendidos.append({"Escuderia": auto["escuderia"], "Motivo": "Neumaticos, no disponibles"})
+    
+    return atendidos, no_atendidos, boxes
+atendidos, no_atendidos, boxes = gestionar_pit_stop(boxes, autos_en_espera)
+print("atendidos", atendidos)
+print("No atendidos", no_atendidos)
+print(boxes)
 
 
 
