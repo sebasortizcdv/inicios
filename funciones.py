@@ -739,41 +739,86 @@
 # print("Pacienten ingresados", atendidos)
 # print("Pacientes sin atender", no_atentidos)
 #-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-boxes = {
-    "neumaticos": {"Blandos": 4, "Duros": 8, "Lluvia": 4},
-    "mecanicos_disponibles": 6
+# boxes = {
+#     "neumaticos": {"Blandos": 4, "Duros": 8, "Lluvia": 4},
+#     "mecanicos_disponibles": 6
+# }
+
+# autos_en_espera = [
+#     {"escuderia": "Ferrari", "pide": "Blandos", "mecanicos_necesarios": 4},
+#     {"escuderia": "Red Bull", "pide": "Blandos", "mecanicos_necesarios": 4},
+#     {"escuderia": "Mercedes", "pide": "Duros", "mecanicos_necesarios": 5},
+#     {"escuderia": "McLaren", "pide": "Lluvia", "mecanicos_necesarios": 8}
+# ]
+
+# def gestionar_pit_stop(boxes, autos_en_espera):
+#     atendidos = []
+#     no_atendidos = []
+
+#     while len(autos_en_espera) > 0:
+#         auto =  autos_en_espera.pop(0)
+        
+#         if boxes["neumaticos"][auto["pide"]] >= 4 and auto["mecanicos_necesarios"] <= boxes["mecanicos_disponibles"]:
+#             boxes["neumaticos"][auto["pide"]] -= 4
+#             atendidos.append(auto["escuderia"])
+        
+#         else:
+#             if auto["mecanicos_necesarios"] > boxes["mecanicos_disponibles"]:
+#                 no_atendidos.append({"Escuderia": auto["escuderia"], "Motivo": "Mecanicos, no disponibles"})
+#             else:
+#                 no_atendidos.append({"Escuderia": auto["escuderia"], "Motivo": "Neumaticos, no disponibles"})
+    
+#     return atendidos, no_atendidos, boxes
+# atendidos, no_atendidos, boxes = gestionar_pit_stop(boxes, autos_en_espera)
+# print("atendidos", atendidos)
+# print("No atendidos", no_atendidos)
+# print(boxes)
+#-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+aeropuerto = {
+    "Terminal_A": [
+        {"vuelo": "AV-102", "destino": "Madrid", "asientos_libres": 2, "visa_requerida": "Schengen"}
+    ],
+    "Terminal_B": [
+        {"vuelo": "AA-450", "destino": "Nueva York", "asientos_libres": 0, "visa_requerida": "Americana"}
+    ]
 }
 
-autos_en_espera = [
-    {"escuderia": "Ferrari", "pide": "Blandos", "mecanicos_necesarios": 4},
-    {"escuderia": "Red Bull", "pide": "Blandos", "mecanicos_necesarios": 4},
-    {"escuderia": "Mercedes", "pide": "Duros", "mecanicos_necesarios": 5},
-    {"escuderia": "McLaren", "pide": "Lluvia", "mecanicos_necesarios": 8}
+fila_pasajeros = [
+    {"nombre": "Laura", "terminal_asignada": "Terminal_A", "visa_pasajero": "Schengen"},
+    {"nombre": "Javier", "terminal_asignada": "Terminal_B", "visa_pasajero": "Americana"},
+    {"nombre": "Sofia", "terminal_asignada": "Terminal_A", "visa_pasajero": "Turista_Local"},
+    {"nombre": "Carlos", "terminal_asignada": "Terminal_A", "visa_pasajero": "Schengen"}
 ]
 
-def gestionar_pit_stop(boxes, autos_en_espera):
-    atendidos = []
-    no_atendidos = []
-
-    while len(autos_en_espera) > 0:
-        auto = autos_en_espera.pop(0)
-        
-        if boxes["neumaticos"][auto["pide"]] >= 4 and auto["mecanicos_necesarios"] <= boxes["mecanicos_disponibles"]:
-            boxes["neumaticos"][auto["pide"]] -= 4
-            atendidos.append(auto["escuderia"])
-        
-        else:
-            if auto["mecanicos_necesarios"] > boxes["mecanicos_disponibles"]:
-                no_atendidos.append({"Escuderia": auto["escuderia"], "Motivo": "Mecanicos, no disponibles"})
-            else:
-                no_atendidos.append({"Escuderia": auto["escuderia"], "Motivo": "Neumaticos, no disponibles"})
+def procesar_abordaje(aeropuerto, fila_pasajeros):
+    abordaron = []
+    rechazados = []
     
-    return atendidos, no_atendidos, boxes
-atendidos, no_atendidos, boxes = gestionar_pit_stop(boxes, autos_en_espera)
-print("atendidos", atendidos)
-print("No atendidos", no_atendidos)
-print(boxes)
-#-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    while len(fila_pasajeros) > 0:
+        pasajero = fila_pasajeros.pop(0)
+
+        avion = aeropuerto[pasajero["terminal_asignada"]][0]
+        if pasajero["visa_pasajero"] == avion["visa_requerida"] and avion["asientos_libres"] > 0:
+            avion["asientos_libres"] -= 1
+            abordaron.append(pasajero["nombre"])
+
+        else:
+            if pasajero["visa_pasajero"] != avion["visa_requerida"]:
+                rechazados.append({"Nombre": pasajero["nombre"], "Motivo": "Pasajero no cuenta con la Visa necesaria"})
+            else:
+                rechazados.append({"Nombre": pasajero["nombre"], "Motivo": "Asientos no disponibles"})
+                
+
+    return abordaron, rechazados
+subieron, no_subieron = procesar_abordaje(aeropuerto, fila_pasajeros)
+print("Abordaje exitoso", subieron)
+print("Abordaje rechazado", no_subieron)
+# ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
 
 
 
