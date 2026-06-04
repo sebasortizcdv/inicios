@@ -773,47 +773,196 @@
 # print("atendidos", atendidos)
 # print("No atendidos", no_atendidos)
 # print(boxes)
-#-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-aeropuerto = {
-    "Terminal_A": [
-        {"vuelo": "AV-102", "destino": "Madrid", "asientos_libres": 2, "visa_requerida": "Schengen"}
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# aeropuerto = {
+#     "Terminal_A": [
+#         {"vuelo": "AV-102", "destino": "Madrid", "asientos_libres": 2, "visa_requerida": "Schengen"}
+#     ],
+#     "Terminal_B": [
+#         {"vuelo": "AA-450", "destino": "Nueva York", "asientos_libres": 0, "visa_requerida": "Americana"}
+#     ]
+# }
+
+# fila_pasajeros = [
+#     {"nombre": "Laura", "terminal_asignada": "Terminal_A", "visa_pasajero": "Schengen"},
+#     {"nombre": "Javier", "terminal_asignada": "Terminal_B", "visa_pasajero": "Americana"},
+#     {"nombre": "Sofia", "terminal_asignada": "Terminal_A", "visa_pasajero": "Turista_Local"},
+#     {"nombre": "Carlos", "terminal_asignada": "Terminal_A", "visa_pasajero": "Schengen"}
+# ]
+
+# def procesar_abordaje(aeropuerto, fila_pasajeros):
+#     abordaron = []
+#     rechazados = []
+    
+#     while len(fila_pasajeros) > 0:
+#         pasajero = fila_pasajeros.pop(0)
+
+#         avion = aeropuerto[pasajero["terminal_asignada"]][0]
+#         if pasajero["visa_pasajero"] == avion["visa_requerida"] and avion["asientos_libres"] > 0:
+#             avion["asientos_libres"] -= 1
+#             abordaron.append(pasajero["nombre"])
+
+#         else:
+#             if pasajero["visa_pasajero"] != avion["visa_requerida"]:
+#                 rechazados.append({"Nombre": pasajero["nombre"], "Motivo": "Pasajero no cuenta con la Visa necesaria"})
+#             else:
+#                 rechazados.append({"Nombre": pasajero["nombre"], "Motivo": "Asientos no disponibles"})
+                
+
+#     return abordaron, rechazados
+# subieron, no_subieron = procesar_abordaje(aeropuerto, fila_pasajeros)
+# print("Abordaje exitoso", subieron)
+# print("Abordaje rechazado", no_subieron)
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+refugio = {
+    "Perros": [
+        {"raza": "Golden Retriever", "disponibles": 1, "tasa_adopcion": 150}
     ],
-    "Terminal_B": [
-        {"vuelo": "AA-450", "destino": "Nueva York", "asientos_libres": 0, "visa_requerida": "Americana"}
+    "Gatos": [
+        {"raza": "Siamés", "disponibles": 2, "tasa_adopcion": 80}
     ]
 }
 
-fila_pasajeros = [
-    {"nombre": "Laura", "terminal_asignada": "Terminal_A", "visa_pasajero": "Schengen"},
-    {"nombre": "Javier", "terminal_asignada": "Terminal_B", "visa_pasajero": "Americana"},
-    {"nombre": "Sofia", "terminal_asignada": "Terminal_A", "visa_pasajero": "Turista_Local"},
-    {"nombre": "Carlos", "terminal_asignada": "Terminal_A", "visa_pasajero": "Schengen"}
+adoptantes = [
+    {"nombre": "Andrés", "busca": "Perros", "dinero_disponible": 200},
+    {"nombre": "Beatriz", "busca": "Gatos", "dinero_disponible": 50},
+    {"nombre": "Carlos", "busca": "Perros", "dinero_disponible": 150},
+    {"nombre": "Diana", "busca": "Gatos", "dinero_disponible": 100}
 ]
 
-def procesar_abordaje(aeropuerto, fila_pasajeros):
-    abordaron = []
+def adopcion_animales(refugio,adoptantes):
+    aprobados = []
     rechazados = []
-    
-    while len(fila_pasajeros) > 0:
-        pasajero = fila_pasajeros.pop(0)
 
-        avion = aeropuerto[pasajero["terminal_asignada"]][0]
-        if pasajero["visa_pasajero"] == avion["visa_requerida"] and avion["asientos_libres"] > 0:
-            avion["asientos_libres"] -= 1
-            abordaron.append(pasajero["nombre"])
+    while len(adoptantes) > 0:
+        adoptante = adoptantes.pop(0)
+
+        animal = refugio[adoptante["busca"]][0]
+
+        # if animal == adoptante["busca"]:
+            # print("hola")
+
+        if adoptante["dinero_disponible"] > animal["tasa_adopcion"] and animal["disponibles"] > 0:
+            aprobados.append({"Nombre": adoptante["nombre"], "Adopta": animal["raza"]})
+            animal["disponibles"] -= 1
 
         else:
-            if pasajero["visa_pasajero"] != avion["visa_requerida"]:
-                rechazados.append({"Nombre": pasajero["nombre"], "Motivo": "Pasajero no cuenta con la Visa necesaria"})
+            if animal["disponibles"] <= 0:
+                rechazados.append({"Nombre": adoptante["nombre"], "Motivo": "Raza no disponible"})
             else:
-                rechazados.append({"Nombre": pasajero["nombre"], "Motivo": "Asientos no disponibles"})
+                rechazados.append({"Nombre": adoptante["nombre"], "motivo": "Dinero insuficiente"})
+
+    return aprobados, rechazados
+se_van, se_quedan = adopcion_animales(refugio, adoptantes)
+print("Adopciones", se_van)
+print("adopciones sin efecto", se_quedan)
+print(refugio)
+# ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+tienda = {
+    "categorias": {
+        "Accion": {"stock": 1, "edad_minima": 18},
+        "RPG": {"stock": 2, "edad_minima": 12}
+    }
+}
+
+compradores = [
+    {"usuario": "GamerPro99", "genero_deseado": "Accion", "edad": 20},
+    {"usuario": "Santi_Animes", "genero_deseado": "Accion", "edad": 15},
+    {"usuario": "Elena_Zelda", "genero_deseado": "RPG", "edad": 25},
+    {"usuario": "Lucas_CallOf", "genero_deseado": "Accion", "edad": 19}
+]
+
+def compra_videojuegos(tienda, compradores):
+    ventas = []
+    no_ventas = []
+
+    while len(compradores) > 0:
+        comprador = compradores.pop(0)
+        juego = tienda["categorias"][comprador["genero_deseado"]]
+
+        if comprador["edad"] >= juego["edad_minima"] and juego["stock"] > 0:
+            ventas.append(comprador["usuario"])
+            juego["stock"] -= 1
+        
+        else:
+            print("hola")
+            if comprador["edad"] <= juego["edad_minima"]:
+                no_ventas.append({"cliente": comprador["usuario"], "Motivo": "Restriccion de edad"})
+            else:
+                no_ventas.append({"Cliente": comprador["usuario"], "Motivo": "Falta de stock"})
                 
 
-    return abordaron, rechazados
-subieron, no_subieron = procesar_abordaje(aeropuerto, fila_pasajeros)
-print("Abordaje exitoso", subieron)
-print("Abordaje rechazado", no_subieron)
-# ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    return ventas, no_ventas
+vendidos, no_vendidos = compra_videojuegos(tienda, compradores)
+print("Ventas", vendidos)
+print("No ventas", no_vendidos)
+print(tienda)
+#-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+peaje = {
+    "Via_Rapida": [
+        {"saldo_minimo_tag": 50, "abierta": True}
+    ],
+    "Via_Camiones": [
+        {"saldo_minimo_tag": 120, "abierta": False}
+    ]
+}
+
+vehiculos = [
+    {"patente": "AA-123-BB", "via_elegida": "Via_Rapida", "saldo_tag": 60},
+    {"patente": "CC-456-DD", "via_elegida": "Via_Camiones", "saldo_tag": 200},
+    {"patente": "EE-789-FF", "via_elegida": "Via_Rapida", "saldo_tag": 30},
+    {"patente": "GG-012-HH", "via_elegida": "Via_Rapida", "saldo_tag": 50}
+]
+
+def sistema_vial(peaje,vehiculos):
+    pasaron = []
+    no_pasaron = []
+
+    while len(vehiculos) > 0:
+        vehiculo = vehiculos.pop(0)
+        casilla = peaje[vehiculo["via_elegida"]][0]
+
+        if casilla["abierta"] and vehiculo["saldo_tag"] >= casilla["saldo_minimo_tag"]:
+            pasaron.append(vehiculo["patente"])
+        
+        else:
+            if not casilla["abierta"]:
+                no_pasaron.append({"Vehiculo": vehiculo["patente"], "Motivo": "Casilla cerrada"})
+            else:
+                no_pasaron.append({"Vehiculo": vehiculo["patente"], "Motivo": "Saldo insuficiente"})
+    
+    return pasaron, no_pasaron
+
+entran, no_entran = sistema_vial(peaje, vehiculos)
+print("Entran", entran)
+print("No entran", no_entran)
+#----------------------------------------------------------------------------------Introducción a la Programación Orientada a Objetos (POO)-----------------------------------------------------------------------------
+      
+            
+
+
+
+
+
+
+
+
+
+                
+
+
+
+
+
+
+    
+
+    
+
+
+
+
+
 
 
 
