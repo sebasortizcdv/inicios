@@ -936,7 +936,7 @@ def sistema_vial(peaje,vehiculos):
 entran, no_entran = sistema_vial(peaje, vehiculos)
 print("Entran", entran)
 print("No entran", no_entran)
-#---------------------------------------------------------------------Introducción a la Programación Orientada a Objetos (POO)---------------------------------------------------
+#-------------------------------------------------------------------------Introducción a la Programación Orientada a Objetos (POO)--------------------------------------------------------------------------------------
 
       
             
