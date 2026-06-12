@@ -814,129 +814,207 @@
 # print("Abordaje exitoso", subieron)
 # print("Abordaje rechazado", no_subieron)
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-refugio = {
-    "Perros": [
-        {"raza": "Golden Retriever", "disponibles": 1, "tasa_adopcion": 150}
-    ],
-    "Gatos": [
-        {"raza": "Siamés", "disponibles": 2, "tasa_adopcion": 80}
-    ]
-}
+# refugio = {
+#     "Perros": [
+#         {"raza": "Golden Retriever", "disponibles": 1, "tasa_adopcion": 150}
+#     ],
+#     "Gatos": [
+#         {"raza": "Siamés", "disponibles": 2, "tasa_adopcion": 80}
+#     ]
+# }
 
-adoptantes = [
-    {"nombre": "Andrés", "busca": "Perros", "dinero_disponible": 200},
-    {"nombre": "Beatriz", "busca": "Gatos", "dinero_disponible": 50},
-    {"nombre": "Carlos", "busca": "Perros", "dinero_disponible": 150},
-    {"nombre": "Diana", "busca": "Gatos", "dinero_disponible": 100}
-]
+# adoptantes = [
+#     {"nombre": "Andrés", "busca": "Perros", "dinero_disponible": 200},
+#     {"nombre": "Beatriz", "busca": "Gatos", "dinero_disponible": 50},
+#     {"nombre": "Carlos", "busca": "Perros", "dinero_disponible": 150},
+#     {"nombre": "Diana", "busca": "Gatos", "dinero_disponible": 100}
+# ]
 
-def adopcion_animales(refugio,adoptantes):
-    aprobados = []
-    rechazados = []
+# def adopcion_animales(refugio,adoptantes):
+#     aprobados = []
+#     rechazados = []
 
-    while len(adoptantes) > 0:
-        adoptante = adoptantes.pop(0)
+#     while len(adoptantes) > 0:
+#         adoptante = adoptantes.pop(0)
 
-        animal = refugio[adoptante["busca"]][0]
+#         animal = refugio[adoptante["busca"]][0]
 
-        # if animal == adoptante["busca"]:
-            # print("hola")
+#         # if animal == adoptante["busca"]:
+#             # print("hola")
 
-        if adoptante["dinero_disponible"] > animal["tasa_adopcion"] and animal["disponibles"] > 0:
-            aprobados.append({"Nombre": adoptante["nombre"], "Adopta": animal["raza"]})
-            animal["disponibles"] -= 1
+#         if adoptante["dinero_disponible"] > animal["tasa_adopcion"] and animal["disponibles"] > 0:
+#             aprobados.append({"Nombre": adoptante["nombre"], "Adopta": animal["raza"]})
+#             animal["disponibles"] -= 1
 
-        else:
-            if animal["disponibles"] <= 0:
-                rechazados.append({"Nombre": adoptante["nombre"], "Motivo": "Raza no disponible"})
-            else:
-                rechazados.append({"Nombre": adoptante["nombre"], "motivo": "Dinero insuficiente"})
+#         else:
+#             if animal["disponibles"] <= 0:
+#                 rechazados.append({"Nombre": adoptante["nombre"], "Motivo": "Raza no disponible"})
+#             else:
+#                 rechazados.append({"Nombre": adoptante["nombre"], "motivo": "Dinero insuficiente"})
 
-    return aprobados, rechazados
-se_van, se_quedan = adopcion_animales(refugio, adoptantes)
-print("Adopciones", se_van)
-print("adopciones sin efecto", se_quedan)
-print(refugio)
+#     return aprobados, rechazados
+# se_van, se_quedan = adopcion_animales(refugio, adoptantes)
+# print("Adopciones", se_van)
+# print("adopciones sin efecto", se_quedan)
+# print(refugio)
 # ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-tienda = {
-    "categorias": {
-        "Accion": {"stock": 1, "edad_minima": 18},
-        "RPG": {"stock": 2, "edad_minima": 12}
-    }
-}
+# tienda = {
+#     "categorias": {
+#         "Accion": {"stock": 1, "edad_minima": 18},
+#         "RPG": {"stock": 2, "edad_minima": 12}
+#     }
+# }
 
-compradores = [
-    {"usuario": "GamerPro99", "genero_deseado": "Accion", "edad": 20},
-    {"usuario": "Santi_Animes", "genero_deseado": "Accion", "edad": 15},
-    {"usuario": "Elena_Zelda", "genero_deseado": "RPG", "edad": 25},
-    {"usuario": "Lucas_CallOf", "genero_deseado": "Accion", "edad": 19}
-]
+# compradores = [
+#     {"usuario": "GamerPro99", "genero_deseado": "Accion", "edad": 20},
+#     {"usuario": "Santi_Animes", "genero_deseado": "Accion", "edad": 15},
+#     {"usuario": "Elena_Zelda", "genero_deseado": "RPG", "edad": 25},
+#     {"usuario": "Lucas_CallOf", "genero_deseado": "Accion", "edad": 19}
+# ]
 
-def compra_videojuegos(tienda, compradores):
-    ventas = []
-    no_ventas = []
+# def compra_videojuegos(tienda, compradores):
+#     ventas = []
+#     no_ventas = []
 
-    while len(compradores) > 0:
-        comprador = compradores.pop(0)
-        juego = tienda["categorias"][comprador["genero_deseado"]]
+#     while len(compradores) > 0:
+#         comprador = compradores.pop(0)
+#         juego = tienda["categorias"][comprador["genero_deseado"]]
 
-        if comprador["edad"] >= juego["edad_minima"] and juego["stock"] > 0:
-            ventas.append(comprador["usuario"])
-            juego["stock"] -= 1
+#         if comprador["edad"] >= juego["edad_minima"] and juego["stock"] > 0:
+#             ventas.append(comprador["usuario"])
+#             juego["stock"] -= 1
         
-        else:
-            print("hola")
-            if comprador["edad"] <= juego["edad_minima"]:
-                no_ventas.append({"cliente": comprador["usuario"], "Motivo": "Restriccion de edad"})
-            else:
-                no_ventas.append({"Cliente": comprador["usuario"], "Motivo": "Falta de stock"})
+#         else:
+#             print("hola")
+#             if comprador["edad"] <= juego["edad_minima"]:
+#                 no_ventas.append({"cliente": comprador["usuario"], "Motivo": "Restriccion de edad"})
+#             else:
+#                 no_ventas.append({"Cliente": comprador["usuario"], "Motivo": "Falta de stock"})
                 
 
-    return ventas, no_ventas
-vendidos, no_vendidos = compra_videojuegos(tienda, compradores)
-print("Ventas", vendidos)
-print("No ventas", no_vendidos)
-print(tienda)
+#     return ventas, no_ventas
+# vendidos, no_vendidos = compra_videojuegos(tienda, compradores)
+# print("Ventas", vendidos)
+# print("No ventas", no_vendidos)
+# print(tienda)
 #-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-peaje = {
-    "Via_Rapida": [
-        {"saldo_minimo_tag": 50, "abierta": True}
-    ],
-    "Via_Camiones": [
-        {"saldo_minimo_tag": 120, "abierta": False}
-    ]
-}
+# peaje = {
+#     "Via_Rapida": [
+#         {"saldo_minimo_tag": 50, "abierta": True}
+#     ],
+#     "Via_Camiones": [
+#         {"saldo_minimo_tag": 120, "abierta": False}
+#     ]
+# }
 
-vehiculos = [
-    {"patente": "AA-123-BB", "via_elegida": "Via_Rapida", "saldo_tag": 60},
-    {"patente": "CC-456-DD", "via_elegida": "Via_Camiones", "saldo_tag": 200},
-    {"patente": "EE-789-FF", "via_elegida": "Via_Rapida", "saldo_tag": 30},
-    {"patente": "GG-012-HH", "via_elegida": "Via_Rapida", "saldo_tag": 50}
-]
+# vehiculos = [
+#     {"patente": "AA-123-BB", "via_elegida": "Via_Rapida", "saldo_tag": 60},
+#     {"patente": "CC-456-DD", "via_elegida": "Via_Camiones", "saldo_tag": 200},
+#     {"patente": "EE-789-FF", "via_elegida": "Via_Rapida", "saldo_tag": 30},
+#     {"patente": "GG-012-HH", "via_elegida": "Via_Rapida", "saldo_tag": 50}
+# ]
 
-def sistema_vial(peaje,vehiculos):
-    pasaron = []
-    no_pasaron = []
+# def sistema_vial(peaje,vehiculos):
+#     pasaron = []
+#     no_pasaron = []
 
-    while len(vehiculos) > 0:
-        vehiculo = vehiculos.pop(0)
-        casilla = peaje[vehiculo["via_elegida"]][0]
+#     while len(vehiculos) > 0:
+#         vehiculo = vehiculos.pop(0)
+#         casilla = peaje[vehiculo["via_elegida"]][0]
 
-        if casilla["abierta"] and vehiculo["saldo_tag"] >= casilla["saldo_minimo_tag"]:
-            pasaron.append(vehiculo["patente"])
+#         if casilla["abierta"] and vehiculo["saldo_tag"] >= casilla["saldo_minimo_tag"]:
+#             pasaron.append(vehiculo["patente"])
         
-        else:
-            if not casilla["abierta"]:
-                no_pasaron.append({"Vehiculo": vehiculo["patente"], "Motivo": "Casilla cerrada"})
-            else:
-                no_pasaron.append({"Vehiculo": vehiculo["patente"], "Motivo": "Saldo insuficiente"})
+#         else:
+#             if not casilla["abierta"]:
+#                 no_pasaron.append({"Vehiculo": vehiculo["patente"], "Motivo": "Casilla cerrada"})
+#             else:
+#                 no_pasaron.append({"Vehiculo": vehiculo["patente"], "Motivo": "Saldo insuficiente"})
     
-    return pasaron, no_pasaron
+#     return pasaron, no_pasaron
 
-entran, no_entran = sistema_vial(peaje, vehiculos)
-print("Entran", entran)
-print("No entran", no_entran)
+# entran, no_entran = sistema_vial(peaje, vehiculos)
+# print("Entran", entran)
+# print("No entran", no_entran)
 #-------------------------------------------------------------------------Introducción a la Programación Orientada a Objetos (POO)--------------------------------------------------------------------------------------
+#1)
+# class Celular:
+#     def __init__(self, marca, modelo, bateria_inicial):
+#         self.marca = marca
+#         self.modelo = modelo
+#         self.bateria = bateria_inicial
+
+#     def llamar(self, nombre_contacto):
+#         return f"El {self.marca} {self.modelo} esta llamando a {nombre_contacto}"
+    
+#     def reproducir_video(self, nombre_video):
+#         self.bateria -= 5
+#         return f"El {self.modelo} de {self.marca}, esta reproduciendo {nombre_video}"
+
+# mi_telefono = Celular("Apple", "IPhone 15", 100)
+# tu_telefono = Celular("Samsung", "Galaxy S24",80)
+
+
+# print(mi_telefono.marca)
+# print(tu_telefono.marca)
+
+# resultado = mi_telefono.reproducir_video("minecraft")
+
+# print(resultado)
+# print(f"El restante de la bateria es {mi_telefono.bateria}%")
+
+# 2)
+class Coche:
+    def __init__ (self, marca, modelo, carga_maxima, velocidad_maxima):
+    
+        self.marca = marca
+        self.modelo = modelo
+        self.carga_maxima = carga_maxima
+        self.velocidad_maxima = velocidad_maxima
+
+    def conducir(self, nombre_piloto):
+        return f"{nombre_piloto} esta condiciendo: {self.modelo}"
+
+    def abrir_puerta(self, nombre_persona, lado_puerta):
+        return f"{nombre_persona}, abrio el lado {lado_puerta}."
+    
+    def estacionar_bajar_pasajero(self, nombre_piloto, nombre_pasajero):
+        print(f'El {self.modelo} se ha detenido por completo.')
+        accion_puerta = self.abrir_puerta(nombre_pasajero, "derecho")
+        return f"{accion_puerta} Mientras {nombre_piloto} apaga el coche"
+         
+    def limitador_de_peso(self, peso_actual):
+        if self.carga_maxima < peso_actual:
+            return("Carga maxima superada, por favor, no superar la carga maxima permitida")
+        else:
+            return f"{self.modelo} lleva una carga de {peso_actual} pasajeros"
+        
+    def limitador_de_velocidad(self, velocidad_actual, nombre_piloto):
+        if velocidad_actual > self.velocidad_maxima:
+            return ("Por favor, reducir la velocidad")
+        else:
+            return f"{self.modelo} es conducido por {nombre_piloto} a {velocidad_actual}"
+    
+coche_1 = Coche("Hyundai", "Tucson", 4, 200)
+coche_2 = Coche("Ferrari", "La ferrari", 2, 300)
+
+resultado = coche_1.estacionar_bajar_pasajero("Sebastian", "Valeria")
+print(resultado)
+
+#3)
+class Personaje:
+ def 
+
+
+
+
+
+
+
+    
+    
+
+
 
       
             
