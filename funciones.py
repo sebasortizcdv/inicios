@@ -964,46 +964,236 @@
 # print(f"El restante de la bateria es {mi_telefono.bateria}%")
 
 # 2)
-class Coche:
-    def __init__ (self, marca, modelo, carga_maxima, velocidad_maxima):
+# class Coche:
+#     def __init__ (self, marca, modelo, carga_maxima, velocidad_maxima):
     
-        self.marca = marca
-        self.modelo = modelo
-        self.carga_maxima = carga_maxima
-        self.velocidad_maxima = velocidad_maxima
+#         self.marca = marca
+#         self.modelo = modelo
+#         self.carga_maxima = carga_maxima
+#         self.velocidad_maxima = velocidad_maxima
 
-    def conducir(self, nombre_piloto):
-        return f"{nombre_piloto} esta condiciendo: {self.modelo}"
+#     def conducir(self, nombre_piloto):
+#         return f"{nombre_piloto} esta condiciendo: {self.modelo}"
 
-    def abrir_puerta(self, nombre_persona, lado_puerta):
-        return f"{nombre_persona}, abrio el lado {lado_puerta}."
+#     def abrir_puerta(self, nombre_persona, lado_puerta):
+#         return f"{nombre_persona}, abrio el lado {lado_puerta}."
     
-    def estacionar_bajar_pasajero(self, nombre_piloto, nombre_pasajero):
-        print(f'El {self.modelo} se ha detenido por completo.')
-        accion_puerta = self.abrir_puerta(nombre_pasajero, "derecho")
-        return f"{accion_puerta} Mientras {nombre_piloto} apaga el coche"
+#     def estacionar_bajar_pasajero(self, nombre_piloto, nombre_pasajero):
+#         print(f'El {self.modelo} se ha detenido por completo.')
+#         accion_puerta = self.abrir_puerta(nombre_pasajero, "derecho")
+#         return f"{accion_puerta} Mientras {nombre_piloto} apaga el coche"
          
-    def limitador_de_peso(self, peso_actual):
-        if self.carga_maxima < peso_actual:
-            return("Carga maxima superada, por favor, no superar la carga maxima permitida")
-        else:
-            return f"{self.modelo} lleva una carga de {peso_actual} pasajeros"
+#     def limitador_de_peso(self, peso_actual):
+#         if self.carga_maxima < peso_actual:
+#             return("Carga maxima superada, por favor, no superar la carga maxima permitida")
+#         else:
+#             return f"{self.modelo} lleva una carga de {peso_actual} pasajeros"
         
-    def limitador_de_velocidad(self, velocidad_actual, nombre_piloto):
-        if velocidad_actual > self.velocidad_maxima:
-            return ("Por favor, reducir la velocidad")
-        else:
-            return f"{self.modelo} es conducido por {nombre_piloto} a {velocidad_actual}"
+#     def limitador_de_velocidad(self, velocidad_actual, nombre_piloto):
+#         if velocidad_actual > self.velocidad_maxima:
+#             return ("Por favor, reducir la velocidad")
+#         else:
+#             return f"{self.modelo} es conducido por {nombre_piloto} a {velocidad_actual}"
     
-coche_1 = Coche("Hyundai", "Tucson", 4, 200)
-coche_2 = Coche("Ferrari", "La ferrari", 2, 300)
+# coche_1 = Coche("Hyundai", "Tucson", 4, 200)
+# coche_2 = Coche("Ferrari", "La ferrari", 2, 300)
 
-resultado = coche_1.estacionar_bajar_pasajero("Sebastian", "Valeria")
-print(resultado)
+# resultado = coche_1.estacionar_bajar_pasajero("Sebastian", "Valeria")
+# print(resultado)
 
 #3)
-class Personaje:
- def 
+# class Personaje:
+#     def __init__(self, nombre, vida, energia, fuerza):
+
+#         self.nombre = nombre
+#         self.vida = vida
+#         self.energia = energia 
+#         self.fuerza = fuerza
+#         self.esta_vivo = True 
+
+#     def medidor(self):
+#         return self.esta_vivo
+
+#     def atacar(self, enemigo):
+#             if not self.medidor():
+#                 return f'{self.nombre} no puede atacar porque esta muerto'
+            
+#             return f'{self.nombre} ha atacado a {enemigo}, que pierde {self.fuerza} de vida'
+        
+    
+#     def recibir_dano(self, dano):
+#         if not self.medidor():
+#                 return f'{self.nombre} ya esta muerto'
+        
+#         self.vida -= dano
+#         if self.vida <= 0:
+#             self.esta_vivo = False
+#             return f'{self.nombre} esta MUERTO'
+        
+#         return f'{self.nombre} ha recibido {dano} puntos de da*o'
+
+    
+#     def meditar(self):
+#         if not self.medidor():
+#                 return f'{self.nombre} no puede meditar porque esta muerto'
+        
+#         self.energia += 15
+#         resultado = self.energia
+#         return f'Energia total: {resultado}'
+    
+#     def ataque_fulminante(self, enemigo):
+#         if not self.medidor():
+#                 return f'{self.nombre} no puede atacar porque esta muerto'
+        
+#         if self.energia >= 30:
+#             self.energia -= 30
+#             dano_especial = self.fuerza * 2
+#             return f'{enemigo} ha recibido {dano_especial} de dan*o'
+#         else:
+#             print("No cuentas con los puntos de energia necesarios")
+#             accion = self.meditar()
+#             return f'{self.nombre} logro dar el golpe, pero antes tuvo que meditar. Energia actual {accion}'
+            
+        
+# luffy = Personaje("luffy", 100, 30, 100)
+# resultado = luffy.recibir_dano(100)
+# print(resultado)
+
+# 4)
+# class Personaje:
+#     def __init__(self, nombre, vida, fuerza, esta_vivo):
+#         self.nombre = nombre
+#         self.vida = vida
+#         self.fuerza = fuerza
+#         self.esta_vivo = esta_vivo
+
+#     def medidor(self):
+#         if self.vida <= 0:
+#             self.esta_vivo = False
+#         else:
+#             self.esta_vivo = True
+#         return self.esta_vivo
+    
+#     def dar_dano(self, enemigo):
+#         enemigo.vida -= self.fuerza
+
+#         if not enemigo.medidor():
+#             enemigo.vida = 0
+#             return f'{self.nombre} ha sido asesinado por {enemigo.nombre}.'
+#         else:
+#             return f'{enemigo.nombre} ha resistido. Le quedan {enemigo.vida} PS'
+
+#     def atacar(self, enemigo):
+#         if not self.medidor(): 
+#             return (f'{self.nombre} esta muerto')
+
+#         return self.dar_dano(enemigo)
+        
+#     def obtener_bono(self):
+#         return 10
+    
+#     def calcular_fuerza_final(self):
+#         resultado = self.fuerza + self.obtener_bono()
+#         return resultado
+    
+#     def mostrar_poder(self):
+#         return self.calcular_fuerza_final()
+    
+# personaje_1 = Personaje("luffy", 100, 50, True)
+# personaje_2 = Personaje("Shanks", 100, 100, True)  
+
+# print(personaje_1.atacar(personaje_2))
+
+# 5)
+# class Libro:
+#     def __init__(self, nombre, autor, disponible):
+#         self.nombre = nombre
+#         self.autor = autor
+#         self.disponible = disponible
+
+#     def prestar(self, usuario):
+#         if self.disponible:
+#             self.disponible = False
+#             return f'{self.nombre} ha sido prestado'
+#         else:
+#             return f'Lo siento {usuario.nombre}, {self.nombre} ya esta ocupado'
+        
+# class Usuario:
+#     def __init__(self, nombre, tiene_libro):
+#         self.nombre = nombre
+#         self.tiene_libro = tiene_libro
+
+#     def solicitar_libro(self, libro_solicitado):
+#         if self.tiene_libro:
+#             return f'{self.nombre}, Ya tienes un libro prestado, devuelve ese primero'
+#         else:
+#             respuesta = libro_solicitado.prestar(self)
+#             self.tiene_libro = True
+#             return respuesta
+
+            
+# libro_1 = Libro("El principito", "sebastian", False)
+# usuario_1 = Usuario("Fabian", False)
+# print(usuario_1.solicitar_libro(libro_1))
+
+# 6)
+class Nave:
+    def __init__(self, modelo, combustible):
+        self.modelo = modelo
+        self.combustible = combustible
+    
+    def viajar(self):
+        if self.combustible >= 20:
+            self.combustible -= 20
+            return f'Viaje EXITOSO. Combustible restante: {self.combustible} Lts'
+        else:
+            return f'ERROR. combustible insuficiente'
+        
+class Plataforma:
+    def __init__(self, numero, ocupada):
+        self.numero = numero
+        self.ocupada = ocupada
+        
+    def recibir_nave(self, nave_pasajera):
+        if self.ocupada:
+            return f'Plataforma {self.numero} ocupada'
+        else:
+            resultado = nave_pasajera.viajar()
+            
+            if "ERROR" in resultado:
+                return {resultado}
+            else:
+                self.ocupada = True
+                return f'{resultado}. Nave estacionada en plataforma {self.numero}'
+        
+nave_1 = Nave("Machete", 15)
+plataforma_1 = Plataforma(1, False)
+
+print(plataforma_1.recibir_nave(nave_1))
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+            
+            
+             
+    
+
+
+        
+
+
+
 
 
 
