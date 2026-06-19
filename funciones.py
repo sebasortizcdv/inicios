@@ -1137,39 +1137,87 @@
 # print(usuario_1.solicitar_libro(libro_1))
 
 # 6)
-class Nave:
-    def __init__(self, modelo, combustible):
-        self.modelo = modelo
-        self.combustible = combustible
+# class Nave:
+#     def __init__(self, modelo, combustible):
+#         self.modelo = modelo
+#         self.combustible = combustible
     
-    def viajar(self):
-        if self.combustible >= 20:
-            self.combustible -= 20
-            return f'Viaje EXITOSO. Combustible restante: {self.combustible} Lts'
-        else:
-            return f'ERROR. combustible insuficiente'
+#     def viajar(self):
+#         if self.combustible >= 20:
+#             self.combustible -= 20
+#             return f'Viaje EXITOSO. Combustible restante: {self.combustible} Lts'
+#         else:
+#             return f'ERROR. combustible insuficiente'
         
-class Plataforma:
-    def __init__(self, numero, ocupada):
-        self.numero = numero
-        self.ocupada = ocupada
+# class Plataforma:
+#     def __init__(self, numero, ocupada):
+#         self.numero = numero
+#         self.ocupada = ocupada
         
-    def recibir_nave(self, nave_pasajera):
-        if self.ocupada:
-            return f'Plataforma {self.numero} ocupada'
-        else:
-            resultado = nave_pasajera.viajar()
+#     def recibir_nave(self, nave_pasajera):
+#         if self.ocupada:
+#             return f'Plataforma {self.numero} ocupada'
+#         else:
+#             resultado = nave_pasajera.viajar()
             
-            if "ERROR" in resultado:
-                return {resultado}
-            else:
-                self.ocupada = True
-                return f'{resultado}. Nave estacionada en plataforma {self.numero}'
+#             if "ERROR" in resultado:
+#                 return {resultado}
+#             else:
+#                 self.ocupada = True
+#                 return f'{resultado}. Nave estacionada en plataforma {self.numero}'
         
-nave_1 = Nave("Machete", 15)
-plataforma_1 = Plataforma(1, False)
+# nave_1 = Nave("Machete", 15)
+# plataforma_1 = Plataforma(1, False)
 
-print(plataforma_1.recibir_nave(nave_1))
+# print(plataforma_1.recibir_nave(nave_1))
+
+# 6)
+class Producto():
+    def __init__(self, nombre_producto, precio_producto, stock):
+        self.nombre_producto = nombre_producto
+        self.precio_producto = precio_producto
+        self.stock = stock
+        self.exito = 0
+
+    def verificar_stock(self, cantidad_solicitada):
+        if self.stock >= cantidad_solicitada:
+            self.stock -= cantidad_solicitada
+            return {"estado": True, "mensaje": f'Has comprado {cantidad_solicitada} {self.nombre_producto}'}
+        
+        elif self.stock > 0:
+            for _ in range (cantidad_solicitada):
+                if self.stock > 0:
+                    self.stock -= 1
+                    self.exito += 1
+                else:
+                    break
+            return {"estado" : True, "mensaje": f"STOCK insuficiente, cantidad comprada con exito: {self.exito}"}
+     
+        else:
+            return {"estado" : False, "mensaje" :'Producto no disponible'}
+        
+class Carrito():
+    def __init__(self, cantidad_deseada):
+        self.precio_total = 0
+        self.cantidad_deseada = cantidad_deseada
+
+    def comprar_productos(self, producto):
+        verificacion = producto.verificar_stock(self.cantidad_deseada)
+
+        if "STOCK" in verificacion["mensaje"]:
+            self.precio_total = producto.precio_producto * producto.exito
+            return f'{verificacion["mensaje"]}, PRECIO TOTAL {self.precio_total}$'
+        
+        elif verificacion["estado"]:
+            self.precio_total = producto.precio_producto * self.cantidad_deseada
+            return f'{verificacion["mensaje"]}, PRECIO TOTAL {self.precio_total}$'
+
+        else:
+            return f'{verificacion["mensaje"]}'
+        
+producto_1 = Producto("Playstation 5", 500, 5)
+carrito_1 = Carrito(4)
+print(carrito_1.comprar_productos(producto_1))
 
 
 
