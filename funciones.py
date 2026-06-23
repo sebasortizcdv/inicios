@@ -1377,7 +1377,7 @@ cajero = Cajero(60)
 cliente = Cuenta_cliente("sebastian", 1234, 2000, 50)
 print(cajero.retirar_dinero(cliente))
 
-# 12)
+#12)
 
                    
                    
