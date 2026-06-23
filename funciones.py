@@ -1172,61 +1172,234 @@
 # print(plataforma_1.recibir_nave(nave_1))
 
 # 6)
-class Producto():
-    def __init__(self, nombre_producto, precio_producto, stock):
-        self.nombre_producto = nombre_producto
-        self.precio_producto = precio_producto
-        self.stock = stock
-        self.exito = 0
+# class Producto():
+#     def __init__(self, nombre_producto, precio_producto, stock):
+#         self.nombre_producto = nombre_producto
+#         self.precio_producto = precio_producto
+#         self.stock = stock
+#         self.exito = 0
 
-    def verificar_stock(self, cantidad_solicitada):
-        if self.stock >= cantidad_solicitada:
-            self.stock -= cantidad_solicitada
-            return {"estado": True, "mensaje": f'Has comprado {cantidad_solicitada} {self.nombre_producto}'}
+#     def verificar_stock(self, cantidad_solicitada):
+#         if self.stock >= cantidad_solicitada:
+#             self.stock -= cantidad_solicitada
+#             return {"estado": True, "mensaje": f'Has comprado {cantidad_solicitada} {self.nombre_producto}'}
         
-        elif self.stock > 0:
-            for _ in range (cantidad_solicitada):
-                if self.stock > 0:
-                    self.stock -= 1
-                    self.exito += 1
-                else:
-                    break
-            return {"estado" : True, "mensaje": f"STOCK insuficiente, cantidad comprada con exito: {self.exito}"}
+#         elif self.stock > 0:
+#             for _ in range (cantidad_solicitada):
+#                 if self.stock > 0:
+#                     self.stock -= 1
+#                     self.exito += 1
+#                 else:
+#                     break
+#             return {"estado" : True, "mensaje": f"STOCK insuficiente, cantidad comprada con exito: {self.exito}"}
      
+#         else:
+#             return {"estado" : False, "mensaje" :'Producto no disponible'}
+        
+# class Carrito():
+#     def __init__(self, cantidad_deseada):
+#         self.precio_total = 0
+#         self.cantidad_deseada = cantidad_deseada
+
+#     def comprar_productos(self, producto):
+#         verificacion = producto.verificar_stock(self.cantidad_deseada)
+
+#         if "STOCK" in verificacion["mensaje"]:
+#             self.precio_total = producto.precio_producto * producto.exito
+#             return f'{verificacion["mensaje"]}, PRECIO TOTAL {self.precio_total}$'
+        
+#         elif verificacion["estado"]:
+#             self.precio_total = producto.precio_producto * self.cantidad_deseada
+#             return f'{verificacion["mensaje"]}, PRECIO TOTAL {self.precio_total}$'
+
+#         else:
+#             return f'{verificacion["mensaje"]}'
+        
+# producto_1 = Producto("Playstation 5", 500, 5)
+# carrito_1 = Carrito(4)
+# print(carrito_1.comprar_productos(producto_1))
+
+# 7)
+# class Vehiculo:
+#     def __init__(self, nombre, saldo_disponible):
+#         self.nombre = nombre
+#         self.saldo_disponible = saldo_disponible
+
+# class Peaje:
+#     def __init__(self, tarifa) :
+#         self.recaudo = 0
+#         self.rechazados = 0
+#         self.aceptados = 0
+#         self.tarifa = tarifa
+        
+#     def cobrar_peaje(self, vehiculo):
+#         if vehiculo.saldo_disponible >= self.tarifa:
+#             vehiculo.saldo_disponible -= self.tarifa
+#             self.aceptados += 1
+#             self.recaudo = self.recaudo + self.tarifa
+#             return {"nombre": vehiculo.nombre, "Saldo restante": vehiculo.saldo_disponible, "Dinero acumulado": self.recaudo, "Aceptados": self.aceptados}
+        
+#         else:
+#             self.rechazados += 1
+#             return {"nombre": vehiculo.nombre, "Motivo": "Saldo insuficiente para el pago de la tarifa", "Rechazados": self.rechazados}
+
+# coche = Vehiculo("Tucson", 60)
+# peaje = Peaje(50)
+# print(peaje.cobrar_peaje(coche))
+
+# # 8)
+# class Alarma:
+#     def __init__(self, estado, modo):
+#         self.estado = estado
+#         self.modo = modo
+
+#     def dar_mensaje(self):
+#         if self.estado:
+#             self.modo = "ALERTA"
+#             return {"Estado de la alarma": self.modo, "Motivo": "Actividad sospechosa detectada"}
+#         else:
+#             return {"Estado de la alarma": self.modo, "Motivo": "Alarma desconectada"}
+        
+
+# class Sensor:
+#     def __init__(self, movimiento):
+#         self.movimiento = movimiento
+
+#     def detectar_movimiento(self, alarma):
+#         if self.movimiento:
+#             return alarma.dar_mensaje()
+            
+#         else:
+#             return {"Estado de la alarma": alarma.modo, "Motivo": "NO hubo movimiento"}
+        
+# alarma = Alarma(True, "ALERTA")
+# sensor = Sensor(True)
+# print(sensor.detectar_movimiento(alarma))
+
+# # 9)
+# class Cliente:
+#     def __init__(self, nombre, salario, credito):
+#         self.nombre = nombre
+#         self.salario = salario
+#         self.credito = credito
+
+# class Evaluador:
+#     def __init__(self):
+#         self 
+    
+#     def evaluador_credito(self, cliente):
+#         if cliente.salario >= 2000 and cliente.credito >= 70:
+#             return {"Cliente": cliente.nombre, "Estado": "APROBADO"}
+#         else:
+#             if cliente.salario < 2000 and cliente.credito < 70:
+#                 return f'{cliente.nombre} no cumple con ninguno de los requisitos para el credito'
+            
+#             elif cliente. salario < 2000:
+#                 return {"Cliente": cliente.nombre, "Estado": "RECHAZADO", "Motivo": "Salario mensual insuficiente"}
+            
+#             elif cliente.credito < 70:
+#                 return {"Cliente": cliente.nombre, "Estado": "RECHAZADO", "Motivo": "Historial crediticio no valido"}
+            
+# cliente = Cliente("Kellys", 20, 10)
+# evaluador = Evaluador()
+# print(evaluador.evaluador_credito(cliente))
+
+# # 10)
+# import random
+# class Guerrero:
+#     def __init__(self, nombre, vida, fuerza, defensa):
+#         self.nombre = nombre
+#         self.vida = vida
+#         self.fuerza = fuerza
+#         self.defensa = defensa
+    
+#     def pelea(self, enemigo):
+#         numero_dado_1 = random.randint(1, 6)
+#         self.fuerza += numero_dado_1
+        
+#         numero_dado_2 = random.randint(1, 6)
+#         enemigo.fuerza += numero_dado_2
+
+#         if self.fuerza > enemigo.fuerza:
+#             enemigo.vida -= self.fuerza
+            
+#             return f'{self.nombre}, ha atacado a {enemigo.nombre} [{enemigo.vida} PS]'
+        
+#         else:
+#             self.vida -= enemigo.fuerza
+
+#             return f'{enemigo.nombre}, ha atacado a {self.nombre} [{self.vida} PS]'
+        
+# guerrero_1 = Guerrero("Luffy", 100, 70, 100)
+# guerrero_2 = Guerrero("Shanks", 100, 70, 100)
+# print(guerrero_1.pelea(guerrero_2))
+
+# 11)
+class Cuenta_cliente:
+    def __init__(self, nombre_cliente, pin, saldo_disponible, saldo_retirar):
+        self.nombre_cliente = nombre_cliente
+        self.pin = pin
+        self.saldo_disponible = saldo_disponible
+        self.saldo_retirar = saldo_retirar
+
+class Cajero:
+    def __init__(self, saldo_disponible):
+        self.saldo_disponible = saldo_disponible
+        self.contrasena = 0
+        self.intentos = 0
+    
+    def validar_pin(self, cliente):
+        while self.intentos < 3:
+            self.contrasena = int(input("Por favor, ingresar su PIN de seguridad:"))
+            if self.contrasena == cliente.pin:
+                return True
+            self.intentos += 1 
+        return False
+
+    def retirar_dinero(self, cliente):
+        if self.validar_pin(cliente):
+
+            if self.saldo_disponible > 0:
+                if cliente.saldo_disponible >= cliente.saldo_retirar:
+                    if self.saldo_disponible >= cliente.saldo_retirar:
+                        cliente.saldo_disponible -= cliente.saldo_retirar
+                        return {"Nombre": cliente.nombre_cliente, "Estado": "Retiro exitoso", "Saldo final": cliente.saldo_disponible}
+                    else:
+                        return {"Nombre": cliente.nombre_cliente, "Estado": "Cajero no cuenta con el saldo suficiente"}
+                else:
+                    return {"Nombre": cliente.nombre_cliente, "Estado": f'{cliente.nombre_cliente} no cuenta con el saldo para realizar el retiro"'}
+            else:
+                return "Sin plata mijo"
         else:
-            return {"estado" : False, "mensaje" :'Producto no disponible'}
+            return "Intentoos agotados"
         
-class Carrito():
-    def __init__(self, cantidad_deseada):
-        self.precio_total = 0
-        self.cantidad_deseada = cantidad_deseada
+cajero = Cajero(60)
+cliente = Cuenta_cliente("sebastian", 1234, 2000, 50)
+print(cajero.retirar_dinero(cliente))
 
-    def comprar_productos(self, producto):
-        verificacion = producto.verificar_stock(self.cantidad_deseada)
+# 12)
 
-        if "STOCK" in verificacion["mensaje"]:
-            self.precio_total = producto.precio_producto * producto.exito
-            return f'{verificacion["mensaje"]}, PRECIO TOTAL {self.precio_total}$'
-        
-        elif verificacion["estado"]:
-            self.precio_total = producto.precio_producto * self.cantidad_deseada
-            return f'{verificacion["mensaje"]}, PRECIO TOTAL {self.precio_total}$'
-
-        else:
-            return f'{verificacion["mensaje"]}'
-        
-producto_1 = Producto("Playstation 5", 500, 5)
-carrito_1 = Carrito(4)
-print(carrito_1.comprar_productos(producto_1))
-
-
-
+                   
+                   
 
 
 
 
 
         
+
+
+
+
+
+
+    
+
+
+
+
+
+
 
 
 
