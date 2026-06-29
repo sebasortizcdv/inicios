@@ -1335,49 +1335,68 @@
 # print(guerrero_1.pelea(guerrero_2))
 
 # 11)
-class Cuenta_cliente:
-    def __init__(self, nombre_cliente, pin, saldo_disponible, saldo_retirar):
-        self.nombre_cliente = nombre_cliente
-        self.pin = pin
-        self.saldo_disponible = saldo_disponible
-        self.saldo_retirar = saldo_retirar
+# class Cuenta_cliente:
+#     def __init__(self, nombre_cliente, pin, saldo_disponible, saldo_retirar):
+#         self.nombre_cliente = nombre_cliente
+#         self.pin = pin
+#         self.saldo_disponible = saldo_disponible
+#         self.saldo_retirar = saldo_retirar
 
-class Cajero:
-    def __init__(self, saldo_disponible):
-        self.saldo_disponible = saldo_disponible
-        self.contrasena = 0
-        self.intentos = 0
+# class Cajero:
+#     def __init__(self, saldo_disponible):
+#         self.saldo_disponible = saldo_disponible
+#         self.contrasena = 0
+#         self.intentos = 0
     
-    def validar_pin(self, cliente):
-        while self.intentos < 3:
-            self.contrasena = int(input("Por favor, ingresar su PIN de seguridad:"))
-            if self.contrasena == cliente.pin:
-                return True
-            self.intentos += 1 
-        return False
+#     def validar_pin(self, cliente):
+#         while self.intentos < 3:
+#             self.contrasena = int(input("Por favor, ingresar su PIN de seguridad:"))
+#             if self.contrasena == cliente.pin:
+#                 return True
+#             self.intentos += 1 
+#         return False
 
-    def retirar_dinero(self, cliente):
-        if self.validar_pin(cliente):
+#     def retirar_dinero(self, cliente):
+#         if self.validar_pin(cliente):
 
-            if self.saldo_disponible > 0:
-                if cliente.saldo_disponible >= cliente.saldo_retirar:
-                    if self.saldo_disponible >= cliente.saldo_retirar:
-                        cliente.saldo_disponible -= cliente.saldo_retirar
-                        return {"Nombre": cliente.nombre_cliente, "Estado": "Retiro exitoso", "Saldo final": cliente.saldo_disponible}
-                    else:
-                        return {"Nombre": cliente.nombre_cliente, "Estado": "Cajero no cuenta con el saldo suficiente"}
-                else:
-                    return {"Nombre": cliente.nombre_cliente, "Estado": f'{cliente.nombre_cliente} no cuenta con el saldo para realizar el retiro"'}
-            else:
-                return "Sin plata mijo"
-        else:
-            return "Intentoos agotados"
+#             if self.saldo_disponible > 0:
+#                 if cliente.saldo_disponible >= cliente.saldo_retirar:
+#                     if self.saldo_disponible >= cliente.saldo_retirar:
+#                         cliente.saldo_disponible -= cliente.saldo_retirar
+#                         return {"Nombre": cliente.nombre_cliente, "Estado": "Retiro exitoso", "Saldo final": cliente.saldo_disponible}
+#                     else:
+#                         return {"Nombre": cliente.nombre_cliente, "Estado": "Cajero no cuenta con el saldo suficiente"}
+#                 else:
+#                     return {"Nombre": cliente.nombre_cliente, "Estado": f'{cliente.nombre_cliente} no cuenta con el saldo para realizar el retiro"'}
+#             else:
+#                 return "Sin plata mijo"
+#         else:
+#             return "Intentoos agotados"
         
-cajero = Cajero(60)
-cliente = Cuenta_cliente("sebastian", 1234, 2000, 50)
-print(cajero.retirar_dinero(cliente))
+# cajero = Cajero(60)
+# cliente = Cuenta_cliente("sebastian", 1234, 2000, 50)
+# print(cajero.retirar_dinero(cliente))
 
 #12)
+# Simular una maquina que procesa materia prima
+# la nateria prima es limitada, y la maquina consume 3 unidades de materia por cada ciclo (3 materia prima para hacer un producto)
+# la maquina tiene un limite de ciclos antes de calentarse
+
+class Materia_prima:
+    def __init__(self, lote):
+        self.lote = lote 
+
+
+
+class Maquina_industrial:
+    def __init__(self, ciclos):
+        self.ciclos = ciclos
+
+    def procesar_materia(self, materia_prima):
+        while materia_prima => 3:
+            if materia_prima 
+
+
 
                    
                    
